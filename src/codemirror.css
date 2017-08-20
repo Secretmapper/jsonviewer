@@ -1,0 +1,11 @@
+@import '~codemirror/theme/ambiance.css';
+
+.cm-s-ambiance.CodeMirror {
+  background:none;
+  background-image: none;
+  box-shadow: none;
+  font-family: Source Code Pro, monospace;
+
+  height: 100%;
+  width: 100%;
+}
