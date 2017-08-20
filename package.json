@@ -1,0 +1,31 @@
+{
+  "name": "json-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.11",
+    "standard": "^10.0.3",
+    "styled-components": "^2.1.2"
+  },
+  "standard": {
+    "env": [
+      "jest",
+      "jasmine"
+    ],
+    "globals": [
+      "fetch",
+      "URL"
+    ],
+    "parser": "babel-eslint"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "./node_modules/.bin/standard",
+    "lint:fix": "./node_modules/.bin/standard --fix",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
