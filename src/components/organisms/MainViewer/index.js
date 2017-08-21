@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Bulb, EditorActionPaneLayout } from '../../index.js'
+import { Button, TabsHOC, EditorActionPaneLayout } from '../../index.js'
+import { ObjectVisualizer } from '../../index.js'
 import JSONTree from './JSONTree'
 
-export default class MainViewer extends Component {
+export default (
+  TabsHOC(
+    ['tree', 'graph', 'repl'],
+    'tree'
+  )(
+class MainViewer extends Component {
   static propTypes = {
     code: PropTypes.string.isRequired
   }
@@ -12,7 +18,7 @@ export default class MainViewer extends Component {
     super(props)
 
     this.state = {
-      data: JSON.parse(props.code),
+      data: props.isCodeValidJSON ? JSON.parse(props.code) : {},
       isShowingCurrentCode: true
     }
   }
@@ -23,25 +29,51 @@ export default class MainViewer extends Component {
     }
   }
 
-  render () {
-    const { isCodeValidJSON } = this.props
+  renderMain = _ => {
     const { data } = this.state
+    const { activeTab } = this.props
+
+    let main = null
+
+    switch (activeTab) {
+      case 'tree':
+      default:
+        main = (
+          <JSONTree data={data} />
+        )
+        break
+      case 'graph':
+        main = (
+          <ObjectVisualizer data={data} />
+        )
+        break
+      case 'repl':
+        break
+    }
+
+    return main
+  }
+
+  renderButton = (k, label) => {
+    const { onTriggerTab, activeTab } = this.props
+    return <Button onClick={onTriggerTab[k]} active={activeTab === k}>{label}</Button>
+  }
+
+  render () {
+    const { renderMain, renderButton } = this
 
     return (
       <EditorActionPaneLayout
-        title={(
-          <h3>
-            <span>Viewer</span>
-            <Bulb
-              inline
-              color={isCodeValidJSON ? 'lightgreen' : 'red'}
-            />
-          </h3>
-        )}
-        main={
-          <JSONTree data={data} />
+        title={
+          <div>
+            <h3>Viewer</h3>
+            {renderButton('tree', 'Tree')}
+            {renderButton('graph', 'Graph')}
+            {renderButton('repl', 'REPL')}
+          </div>
         }
+        main={renderMain()}
       />
     )
   }
-}
+}))

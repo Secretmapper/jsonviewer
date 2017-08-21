@@ -7,19 +7,28 @@ export default styled.div`
   height: 100%;
   width: 100%;
 
-  & > h3 {
+  & > header {
+    position: absolute;
+    z-index: 2;
+
     margin-top: 0;
     margin-bottom: 0;
     padding: 30px;
     padding-top: 20px;
 
-    & > small {
-      color: #A8A7A7;
-      margin-left: 5px;
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      display: inline-block;
+
+      & > small {
+        color: #A8A7A7;
+        margin-left: 5px;
+      }
     }
   }
 
-  main {
+  & > main {
     position: absolute;
     top: 0;
 

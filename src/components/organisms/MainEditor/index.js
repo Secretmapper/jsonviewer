@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { EditorActionPaneLayout } from '../../index.js'
+import { Bulb, EditorActionPaneLayout } from '../../index.js'
 import CodeMirror from './CodeMirror'
 
 export default class MainEditor extends Component {
@@ -10,11 +10,20 @@ export default class MainEditor extends Component {
   }
 
   render () {
-    const { code, onChangeCode } = this.props
+    const { code, onChangeCode, isCodeValidJSON } = this.props
 
     return (
       <EditorActionPaneLayout
-        title={<h3>JSON <small>Type Here</small></h3>}
+        title={
+          <h3>
+            <span>JSON</span>
+            <small>Type Here</small>
+            <Bulb
+              inline
+              color={isCodeValidJSON ? 'lightgreen' : 'red'}
+            />
+          </h3>
+        }
         main={
           <CodeMirror
             value={code}

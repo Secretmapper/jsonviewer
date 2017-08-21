@@ -37,7 +37,11 @@ class App extends Component {
       <MainLayout>
         <EditorViewerLayout
           editor={
-            <MainEditor code={code} onChangeCode={onChangeCode} />
+            <MainEditor
+              code={code}
+              onChangeCode={onChangeCode}
+              isCodeValidJSON={isCodeValidJSON}
+            />
           }
           viewer={
             <MainViewer code={code} isCodeValidJSON={isCodeValidJSON} />
