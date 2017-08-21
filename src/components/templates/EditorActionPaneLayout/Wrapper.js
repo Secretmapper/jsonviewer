@@ -8,6 +8,7 @@ export default styled.div`
   width: 100%;
 
   & > header {
+    box-sizing: border-box;
     position: absolute;
     z-index: 2;
 
@@ -15,6 +16,8 @@ export default styled.div`
     margin-bottom: 0;
     padding: 30px;
     padding-top: 20px;
+
+    width: 100%;
 
     h3 {
       margin-top: 0;
@@ -31,8 +34,9 @@ export default styled.div`
   & > main {
     position: absolute;
     top: 0;
-
     left: 0;
+    z-index: 1;
+
     padding-left: 30px;
     padding-top: 60px;
     padding-bottom: 30px;
