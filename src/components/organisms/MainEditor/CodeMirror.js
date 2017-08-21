@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CodeMirror from 'react-codemirror'
+import CodeMirror from 'react-codemirror2'
 
 export default styled(CodeMirror)`
   cursor: text;

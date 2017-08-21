@@ -10,8 +10,13 @@ export default class MainEditor extends Component {
     onChangeCode: PropTypes.func.isRequired
   }
 
+  onClear = e => {
+    this.props.onChangeCode('')
+  }
+
   render () {
     const { code, onChangeCode, isCodeValidJSON } = this.props
+    const { onClear } = this
 
     return (
       <EditorActionPaneLayout
@@ -33,7 +38,7 @@ export default class MainEditor extends Component {
                 <Button key='t'>Tab</Button>
               </HoverMenu>
               <Button>Compact</Button>
-              <Button>Clear</Button>
+              <Button onClick={onClear}>Clear</Button>
             </Right>
           </FullWidth>
         }

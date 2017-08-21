@@ -30,9 +30,10 @@ class MainViewer extends Component {
   }
 
   renderMain = _ => {
-    const { data } = this.state
+    const { code } = this.props
     const { activeTab } = this.props
 
+    let data = code === '' ? {} : this.state.data
     let main = null
 
     switch (activeTab) {
