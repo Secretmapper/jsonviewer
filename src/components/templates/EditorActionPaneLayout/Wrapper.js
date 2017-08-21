@@ -14,7 +14,7 @@ export default styled.div`
     padding-top: 20px;
   }
 
-  .ReactCodeMirror {
+  main {
     position: absolute;
     top: 0;
 

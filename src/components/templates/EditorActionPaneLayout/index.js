@@ -4,6 +4,8 @@ import Wrapper from './Wrapper'
 export default ({ title, main }) => (
   <Wrapper>
     {title}
-    {main}
+    <main>
+      {main}
+    </main>
   </Wrapper>
 )

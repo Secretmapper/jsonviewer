@@ -1,7 +1,7 @@
-@import '~codemirror/theme/ambiance.css';
+@import '~codemirror/theme/railscasts.css';
 
-.cm-s-ambiance.CodeMirror {
-  background:none;
+.cm-s-railscasts.CodeMirror {
+  background: none;
   background-image: none;
   box-shadow: none;
   font-family: Source Code Pro, monospace;
