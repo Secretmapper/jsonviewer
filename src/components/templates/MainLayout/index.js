@@ -1,7 +1,18 @@
-import styled from 'styled-components'
+import React from 'react'
+import Wrapper from './Wrapper'
+import Main from './Main'
+import Sidebar from './Sidebar'
+import SidebarInner from './SidebarInner'
 
-export default styled.main`
-  background: #292828;
-  color: #DCDCDC;
-  height: 100%;
-`
+export default ({ main, sidebar }) => (
+  <Wrapper>
+    <Main>
+      {main}
+    </Main>
+    <Sidebar>
+      <SidebarInner>
+        {sidebar}
+      </SidebarInner>
+    </Sidebar>
+  </Wrapper>
+)

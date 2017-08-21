@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MainLayout, EditorViewerLayout, MainEditor, MainViewer } from './components'
+import { MainLayout, EditorViewerLayout, MainEditor, MainViewer, JSONViewerPane } from './components'
 import 'codemirror/lib/codemirror.css'
 import './codemirror.css'
 import 'codemirror/mode/javascript/javascript.js'
@@ -34,20 +34,23 @@ class App extends Component {
     const { state: { code, isCodeValidJSON }, onChangeCode } = this
 
     return (
-      <MainLayout>
-        <EditorViewerLayout
-          editor={
-            <MainEditor
-              code={code}
-              onChangeCode={onChangeCode}
-              isCodeValidJSON={isCodeValidJSON}
-            />
-          }
-          viewer={
-            <MainViewer code={code} isCodeValidJSON={isCodeValidJSON} />
-          }
-        />
-      </MainLayout>
+      <MainLayout
+        main={
+          <EditorViewerLayout
+            editor={
+              <MainEditor
+                code={code}
+                onChangeCode={onChangeCode}
+                isCodeValidJSON={isCodeValidJSON}
+              />
+            }
+            viewer={
+              <MainViewer code={code} isCodeValidJSON={isCodeValidJSON} />
+            }
+          />
+        }
+        sidebar={<JSONViewerPane />}
+      />
     )
   }
 }
