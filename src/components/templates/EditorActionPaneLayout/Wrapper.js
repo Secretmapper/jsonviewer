@@ -12,6 +12,11 @@ export default styled.div`
     margin-bottom: 0;
     padding: 30px;
     padding-top: 20px;
+
+    & > small {
+      color: #A8A7A7;
+      margin-left: 5px;
+    }
   }
 
   main {

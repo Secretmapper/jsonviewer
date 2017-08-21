@@ -14,7 +14,7 @@ export default class MainEditor extends Component {
 
     return (
       <EditorActionPaneLayout
-        title={<h3>JSON</h3>}
+        title={<h3>JSON <small>Type Here</small></h3>}
         main={
           <CodeMirror
             value={code}
