@@ -68,7 +68,9 @@ export default class MainEditor extends Component {
             options={{
               tabSize: 4,
               mode: 'application/ld+json',
-              lineNumbers: false,
+              lineNumbers: true,
+              gutters: ['CodeMirror-lint-markers'],
+              lint: true,
               theme: 'railscasts'
             }}
           />

@@ -9,3 +9,9 @@
   height: 100%;
   width: 100%;
 }
+
+.CodeMirror-lint-tooltip.CodeMirror-lint-tooltip {
+  background-color: #292828;
+  color: white;
+  border: 1px solid #545353;
+}

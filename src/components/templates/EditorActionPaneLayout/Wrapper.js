@@ -37,10 +37,8 @@ export default styled.div`
     left: 0;
     z-index: 1;
 
-    padding-left: 30px;
     padding-top: 60px;
-    padding-bottom: 30px;
-    height: calc(100% - 90px);
+    height: calc(100% - 60px);
     width: calc(100% - 30px);
   }
 `

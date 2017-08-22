@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Button, TabsHOC, EditorActionPaneLayout } from '../../index.js'
 import { ObjectVisualizer } from '../../index.js'
 import JSONTree from './JSONTree'
+import MainWrapper from './MainWrapper'
 
 export default (
   TabsHOC(
@@ -73,7 +74,11 @@ class MainViewer extends Component {
             {renderButton('repl', 'REPL')}
           </div>
         }
-        main={renderMain()}
+        main={
+          <MainWrapper>
+            {renderMain()}
+          </MainWrapper>
+        }
       />
     )
   }

@@ -3,6 +3,10 @@ import { MainLayout, EditorViewerLayout, MainEditor, MainViewer, JSONViewerPane 
 import 'codemirror/lib/codemirror.css'
 import './codemirror.css'
 import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/addon/lint/lint.js'
+import 'codemirror/addon/lint/lint.css'
+import './lib/json-lint.js'
+
 import { isJSON } from './utils'
 
 const initialCode = `{
