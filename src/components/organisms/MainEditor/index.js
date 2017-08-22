@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { HoverMenu, Button, Bulb, EditorActionPaneLayout } from '../../index.js'
 import { FullWidth, Right } from '../../index.js'
+import { compactJSON, formatJSON } from '../../../utils'
 import CodeMirror from './CodeMirror'
 
 export default class MainEditor extends Component {
@@ -14,9 +15,27 @@ export default class MainEditor extends Component {
     this.props.onChangeCode('')
   }
 
+  _onSpace = n => _ => {
+    const { code } = this.props
+
+    this.props.onChangeCode(formatJSON(code, n))
+  }
+
+  onSpace = {
+    2: this._onSpace(2),
+    3: this._onSpace(3),
+    4: this._onSpace(4)
+  }
+
+  onCompact = _ => {
+    const { code } = this.props
+
+    this.props.onChangeCode(compactJSON(code))
+  }
+
   render () {
     const { code, onChangeCode, isCodeValidJSON } = this.props
-    const { onClear } = this
+    const { onSpace, onCompact, onClear } = this
 
     return (
       <EditorActionPaneLayout
@@ -31,13 +50,12 @@ export default class MainEditor extends Component {
               />
             </h3>
             <Right>
-              <HoverMenu target={<Button>Format</Button>}>
-                <Button key='2'>2 Spaces</Button>
-                <Button key='3'>3 Spaces</Button>
-                <Button key='4'>4 Spaces</Button>
-                <Button key='t'>Tab</Button>
+              <HoverMenu target={<Button onClick={onSpace['2']}>Format</Button>}>
+                <Button onClick={onSpace['2']} key='2'>2 Spaces</Button>
+                <Button onClick={onSpace['3']} key='3'>3 Spaces</Button>
+                <Button onClick={onSpace['4']} key='4'>4 Spaces</Button>
               </HoverMenu>
-              <Button>Compact</Button>
+              <Button onClick={onCompact}>Compact</Button>
               <Button onClick={onClear}>Clear</Button>
             </Right>
           </FullWidth>
@@ -45,7 +63,7 @@ export default class MainEditor extends Component {
         main={
           <CodeMirror
             value={code}
-            onChange={onChangeCode}
+            onValueChange={(editor, metadata, value) => onChangeCode(value)}
             innerRef={this.editorRefCallback}
             options={{
               tabSize: 4,
