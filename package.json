@@ -2,7 +2,7 @@
   "name": "json-viewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://secretmapper.github.io/json-viewer",
+  "homepage": "https://secretmapper.github.io/jsonviewer",
   "dependencies": {
     "d3-state-visualizer": "^1.3.1",
     "gh-pages": "^1.0.0",
