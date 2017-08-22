@@ -16,3 +16,36 @@ h1, h2, h3, h4, h5, h6 {
   font-family: montserrat;
   font-weight: normal;
 }
+
+@keyframes moveUp {
+  from { transform: translateY(calc(100% + 25px)); }
+  to { transform: translateY(0); }
+}
+
+@keyframes moveDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(100% + 25px)); }
+}
+
+.service-worker-toast {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 12px #181717;
+  color: #797979;
+  padding: 17px;
+
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 10;
+
+  transition: transform 0.3s ease;
+}
+
+.service-worker-toast.service-worker-toast--enter {
+  animation: moveUp 0.5s ease;
+}
+.service-worker-toast.service-worker-toast--exit {
+  animation: moveDown 0.5s ease;
+  animation-fill-mode: forwards;  
+}
